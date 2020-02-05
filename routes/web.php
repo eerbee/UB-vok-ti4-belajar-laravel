@@ -16,3 +16,15 @@
 // });
 
 Route::get('/', 'ProductController@index');
+
+Route::get('/stisla', function () {
+    return view('index');
+});
+
+Route::get('/dashboard', function () {
+    return view('layouts/backend/hal_dashboard');
+});
+
+Route::get('/buku', function () {
+    return view('layouts/backend/hal_buku');
+});
