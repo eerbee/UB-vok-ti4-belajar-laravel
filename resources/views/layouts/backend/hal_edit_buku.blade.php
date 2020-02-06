@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin - Dashboard</title>
+	<title>Admin - Edit Buku</title>
 	@include('includes.backend.meta_head')
 </head>
-<body class="animsition">
+<body>
 	<div class="page-wrapper">
 		<!-- MENU SIDEBAR-->
-			@include('includes.backend.menu_sidebar')
+		<aside class="menu-sidebar d-none d-lg-block">
+		    <div class="logo">
+		        <a href="#">
+		            <img src="{{asset('assets/images/icon/logo.png')}}" alt="Cool Admin" />
+		        </a>
+		    </div>
+		    <div class="menu-sidebar__content js-scrollbar1">
+		        <nav class="navbar-sidebar">
+		            <ul class="list-unstyled navbar__list">
+		                <li class="has-sub">
+		                    <a class="js-arrow" href="{{url('buku')}}">
+		                        <i class="fas fa-arrow-left"></i>Kembali
+		                    </a>
+		                </li>
+		            </ul>
+		        </nav>
+		    </div>
+		</aside>
 		<!-- END MENU SIDEBAR-->
 
+		<!-- PAGE CONTAINER-->
         <div class="page-container">
         	<!-- HEADER DESKTOP-->
         	@include('includes.backend.header')	
         	<!-- END HEADER DESKTOP-->
 
-            <section class="section">
         	<!-- MAIN CONTENT-->
         	@yield('content')
         	<!-- END MAIN CONTENT-->
-            </section>
         </div>
 	</div>
-
+	
 	<!-- Jquery JS-->
     <script src="{{asset('assets/vendor/jquery-3.2.1.min.js')}}"></script>
     <!-- Bootstrap JS-->
@@ -41,6 +57,5 @@
     <script src="{{asset('assets/vendor/select2/select2.min.js')}}"></script>
     <!-- Main JS-->
     <script src="{{asset('assets/js/main.js')}}"></script>
-    
 </body>
 </html>

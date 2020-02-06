@@ -1,7 +1,7 @@
 @extends('layouts.backend.hal_dashboard')
 
 @section('content')
-<section id="works">
+
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
@@ -85,5 +85,5 @@
             </div>
         </div>
     </div>
-</section>
-@endsection
+
+@stop

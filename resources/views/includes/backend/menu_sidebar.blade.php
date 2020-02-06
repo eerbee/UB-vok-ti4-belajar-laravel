@@ -9,17 +9,17 @@
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li class="has-sub">
-                    <a class="js-arrow" href="index.html">
+                    <a class="js-arrow" href="{{url('dashboard')}}">
                         <i class="fas fa-tachometer-alt"></i>Dashboard
                     </a>
                 </li>
                 <li>
-                    <a href="buku.html">
+                    <a href="{{url('buku')}}">
                         <i class="fas fa-book"></i>Buku
                     </a>
                 </li>
                 <li>
-                    <a href="peminjaman.html">
+                    <a href="{{url('layouts/backend/hal_peminjaman')}}">
                         <i class="fas fa-table"></i>Peminjaman
                     </a>
                 </li>

@@ -11,20 +11,19 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', 'ProductController@index');
-
-Route::get('/stisla', function () {
-    return view('index');
+//ROUTE TAMPILAN DASHBOARD
+Route::get('dashboard', function () {
+    return view('pages/backend/dashboard');
 });
 
-Route::get('/dashboard', function () {
-    return view('layouts/backend/hal_dashboard');
-});
+Route::get('buku', 'BukuController@buku');
 
-Route::get('/buku', function () {
-    return view('layouts/backend/hal_buku');
-});
+Route::get('buku/tambah_buku', 'BukuController@create');
+
+Route::post('buku', 'BukuController@store');
+
+Route::get('buku/{buku}/edit_buku', 'BukuController@edit');
+
+Route::post('buku/{buku}/update', 'BukuController@update');
+
+Route::get('buku/{buku}/delete', 'BukuController@destroy');
