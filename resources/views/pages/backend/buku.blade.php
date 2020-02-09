@@ -1,6 +1,11 @@
 @extends('layouts.backend.hal_buku')
 
 @section('content')
+    @if ($message = Session::get('succes'))
+        <div class="alert alert-succes">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
@@ -8,7 +13,7 @@
                     <div class="col-md-12">
                         <div class="overview-wrap">
                             <h2 class="title-1">DATA BUKU</h2>
-                            <form action="{{url('buku/tambah_buku')}}">
+                            <form action="{{route('buku.create')}}">
                             <button class="au-btn au-btn-icon au-btn--blue">
                                 <i class="zmdi zmdi-plus"></i>ADD BUKU 
                             </button>
@@ -18,27 +23,38 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">ID Buku</th>
-                                        <th scope="col">Judul</th>
-                                        <th scope="col">Penulis</th>
-                                        <th scope="col">Penerbit</th>
-                                        <th scope="col">Tahun Terbit</th>
-                                        <th scope="col"><center>Option</center></th>
+                                        <th scope="col"><center>ID</center></th>
+                                        <th scope="col" width="9%"><center>ID Buku</center></th>
+                                        <th scope="col" width="25%"><center>Judul</center></th>
+                                        <th scope="col" width="15%">Penulis</th>
+                                        <th scope="col" width="15%">Penerbit</th>
+                                        <th scope="col" width="3%"><center>Tahun</center></th>
+                                        <th scope="col" ><center>Aksi</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $i = 0;        
+                                    @endphp
                                     @foreach($bukus as $b)
+                                    @php
+                                        $i++;
+                                    @endphp
                                     <tr>
-                                        <th scope="row">{{ $b->id }}</th>
-                                        <td>{{ $b->id_buku }}</td>
-                                        <td>{{ $b->judul }}</td>
-                                        <td>{{ $b->penulis }}</td>
-                                        <td>{{ $b->penerbit }}</td>
-                                        <td>{{ $b->tahun_terbit }}</td>
+                                        <td align="center"> {{ $i }}</td>
+                                        <td>                {{ $b->id }}</td>
+                                        <td>                {{ $b->judul }}</td>
+                                        <td>                {{ $b->penulis }}</td>
+                                        <td>                {{ $b->penerbit }}</td>
+                                        <td align="center"> {{ $b->tahun_terbit }}</td>
                                         <td align="center">
-                                            <a href="{{ url('buku/' . $b->id . '/edit_buku') }}" class="btn btn-warning">Edit</a>
-                                            <a href="{{ url('buku/' . $b->id . '/delete') }}" class="btn btn-danger">Hapus</a>
+                                            <a href="{{ route('buku.show', $b->id) }}" class="btn btn-secondary btn-sm"> Detail </a>
+                                            <a href="{{route('buku.edit', $b->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{route('buku.destroy', $b->id)}}" method="post" style="float: right;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach

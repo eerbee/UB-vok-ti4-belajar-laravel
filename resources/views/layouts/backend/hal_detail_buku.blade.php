@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin - Tambah Buku</title>
+	<title>Admin - Detail Buku</title>
 	@include('includes.backend.meta_head')
 </head>
 <body>

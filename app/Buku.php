@@ -10,5 +10,11 @@ class Buku extends Model
 
     public $timestamps = false;	
 
-    protected $fillable = ['id_buku', 'judul', 'penulis', 'penerbit', 'tahun_terbit'];
+    protected $fillable = ['id', 'judul', 'penulis', 'penerbit', 'tahun_terbit', 
+    'kategori', 'sinopsis', 'cover_buku'];
+
+    // public function table_kategori()
+    // {
+    // 	return $this->belongsTo('App\Kategori');
+    // }
 }

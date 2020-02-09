@@ -17,7 +17,7 @@
 		        <nav class="navbar-sidebar">
 		            <ul class="list-unstyled navbar__list">
 		                <li class="has-sub">
-		                    <a class="js-arrow" href="{{url('buku')}}">
+		                    <a class="js-arrow" href="{{url('/buku')}}">
 		                        <i class="fas fa-arrow-left"></i>Kembali
 		                    </a>
 		                </li>

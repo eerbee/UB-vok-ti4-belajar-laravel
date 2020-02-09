@@ -12,18 +12,31 @@
 */
 
 //ROUTE TAMPILAN DASHBOARD
-Route::get('dashboard', function () {
+Route::get('/dashboard', function () {
     return view('pages/backend/dashboard');
 });
 
-Route::get('buku', 'BukuController@buku');
+Route::get('/peminjaman', function () {
+    return view('pages/backend/peminjaman');
+});
 
-Route::get('buku/tambah_buku', 'BukuController@create');
+//ROUTE TAMPILAN DATA BUKU
+Route::get('/buku', 'BukuController@index');
 
-Route::post('buku', 'BukuController@store');
 
-Route::get('buku/{buku}/edit_buku', 'BukuController@edit');
+//AKSES ROUTE
+Route::resource('buku','BukuController');
 
-Route::post('buku/{buku}/update', 'BukuController@update');
 
-Route::get('buku/{buku}/delete', 'BukuController@destroy');
+
+// Route::get('buku/{buku}/detail', 'BukuController@show');
+
+// Route::get('buku/tambah_buku', 'BukuController@create');
+
+// Route::post('buku', 'BukuController@store');
+
+// Route::get('buku/{buku}/edit_buku', 'BukuController@edit');
+
+// Route::post('buku/{buku}/update', 'BukuController@update');
+
+// Route::get('buku/{buku}/delete', 'BukuController@destroy');
