@@ -15,12 +15,12 @@
                 </li>
                 <li>
                     <a href="{{url('/buku')}}">
-                        <i class="fas fa-book"></i>Buku
+                        <i class="fas fa-book"></i>Data Buku
                     </a>
                 </li>
                 <li>
                     <a href="{{url('/kategori')}}">
-                        <i class="fas fa-table"></i>Kategori
+                        <i class="fas fa-table"></i>Kategori Buku
                     </a>
                 </li>
                 <li>

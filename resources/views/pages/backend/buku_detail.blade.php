@@ -12,18 +12,18 @@
 	            		<div class="card mb-3" style="max-width: 540px;">
 	            			<div class="row no-gutters">
     							<div class="col-md-4">
-      								<img src="{{ URL::to('/') }}/images/{{ $data->cover_buku }}" class="card-img"/><br>
+      								<img src="{{ URL::to('/') }}/images/{{ $data->tbuku_cover_buku }}" class="card-img"/><br>
       								<center>
-      									<h5 style="margin-top: 10px;">{{$data->id}}</h5>
+      									<h5 style="margin-top: 10px;">{{$data->tbuku_id}}</h5>
       								</center>
     							</div>
 							    <div class="col-md-8">
 							      	<div class="card-body">
-							        	<h4 class="card-title">{{$data->judul}}</h5>
+							        	<h4 class="card-title">{{$data->tbuku_judul}}</h5>
 							        	<p class="card-text" style="margin-top: -10px; margin-bottom:10px;">
-							        		<small class="text-muted">{{$data->kategori}} - {{$data->tahun_terbit}}</small>
+							        		<small class="text-muted">{{$data->tbuku_kategori}} - {{$data->tbuku_tahun_terbit}}</small>
 							        	</p>
-							        	<p class="card-text" style="font-size: 11pt;">{{$data->sinopsis}}</p>
+							        	<p class="card-text" style="font-size: 11pt;">{{$data->tbuku_sinopsis}}</p>
 							      	</div>
 							    </div>
   							</div>
@@ -31,11 +31,11 @@
 	            	</div>
   					<div class="col-4 m-t-55" style="margin-left: -1cm;">
   						<ul>
-  							<li>ID Buku : {{$data->id}}</li>
-  							<li>Penulis : {{$data->penulis}}</li>
-  							<li>Penerbit : {{$data->penerbit}}</li>
-  							<li>Tahun Terbit : {{$data->tahun_terbit}}</li>
-  							<li>Kategori : {{$data->kategori}}</li>
+  							<li>ID Buku : {{$data->tbuku_id}}</li>
+  							<li>Penulis : {{$data->tbuku_penulis}}</li>
+  							<li>Penerbit : {{$data->tbuku_penerbit}}</li>
+  							<li>Tahun Terbit : {{$data->tbuku_tahun_terbit}}</li>
+  							<li>Kategori : {{$data->tbuku_kategori}}</li>
   						</ul>
   					</div>
 	            </div>

@@ -12,10 +12,38 @@ class BukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Buku::all();
-        return view('pages.backend.buku', ['bukus' => $data]);
+        // $bukus = Buku::all();
+
+        $bukus = Buku::when($request->q, function ($query) use ($request) 
+        {
+              $query->where('tbuku_id', 'LIKE', "%{$request->q}%")
+                    ->orWhere('tbuku_judul', 'LIKE', "%{$request->q}%")
+                    ->orWhere('tbuku_penulis', 'LIKE', "%{$request->q}%")
+                    ->orWhere('tbuku_penerbit', 'LIKE', "%{$request->q}%")
+                    ->orWhere('tbuku_tahun_terbit', 'LIKE', "%{$request->q}%");
+        })->orderBy('tbuku_id', 'desc')->paginate(5);
+
+        $bukus->appends($request->only('q'));
+
+        return view('pages.backend.buku', compact('bukus'));
+
+        // if(!$bukus->isEmpty()) 
+        // {
+        //     return view('pages.backend.buku', compact('bukus'));
+        // }  
+        // else 
+        // {
+
+        //     // abort(404);
+        // }
+    }
+
+    public function indexBuku(Request $request)
+    {
+        $bukus = Buku::all();
+        return view('pages.backend.buku', compact('bukus'));
     }
 
     /**
@@ -37,30 +65,30 @@ class BukuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id' => 'required',
-            'judul' => 'required',
-            'penulis' => 'required' ,
-            'penerbit' => 'required' ,
-            'tahun_terbit' => 'required',
-            'kategori' => 'required',
-            'cover_buku' => 'required|image|max:2048'                  
+            'tbuku_id' => 'required',
+            'tbuku_judul' => 'required',
+            'tbuku_penulis' => 'required' ,
+            'tbuku_penerbit' => 'required' ,
+            'tbuku_tahun_terbit' => 'required',
+            'tbuku_kategori' => 'required',
+            'tbuku_cover_buku' => 'required|image|max:2048'                  
         ]);
 
-        $image = $request->file('cover_buku');
+        $image = $request->file('tbuku_cover_buku');
 
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
 
         $image->move(public_path('images'), $new_name);
 
         $form_data = array(
-            'id' => $request->id,
-            'judul' => $request->judul, 
-            'penulis' => $request->penulis,
-            'penerbit' => $request->penerbit, 
-            'tahun_terbit' => $request->tahun_terbit,
-            'kategori' => $request->kategori,
-            'sinopsis' => $request->sinopsis,
-            'cover_buku' => $new_name
+            'tbuku_id' => $request->tbuku_id,
+            'tbuku_judul' => $request->tbuku_judul, 
+            'tbuku_penulis' => $request->tbuku_penulis,
+            'tbuku_penerbit' => $request->tbuku_penerbit, 
+            'tbuku_tahun_terbit' => $request->tbuku_tahun_terbit,
+            'tbuku_kategori' => $request->tbuku_kategori,
+            'tbuku_sinopsis' => $request->tbuku_sinopsis,
+            'tbuku_cover_buku' => $new_name
         );
 
         Buku::create($form_data);
@@ -101,16 +129,16 @@ class BukuController extends Controller
     public function update(Request $request, $id)
     {
         $cover_name = $request->hidden_image;
-        $cover = $request->file('cover_buku');
+        $cover = $request->file('tbuku_cover_buku');
         if($cover != '')
         {
             $request->validate([
-                'id' => 'required',
-                'judul' => 'required',
-                'penulis' => 'required' ,
-                'penerbit' => 'required' ,
-                'tahun_terbit' => 'required',
-                'cover_buku' => 'required|image|max:2048' 
+                'tbuku_id' => 'required',
+                'tbuku_judul' => 'required',
+                'tbuku_penulis' => 'required' ,
+                'tbuku_penerbit' => 'required' ,
+                'tbuku_tahun_terbit' => 'required',
+                'tbuku_cover_buku' => 'required|image|max:2048' 
             ]);
 
             $cover_name = rand() . '.' . $cover->getClientOriginalExtension();
@@ -119,24 +147,24 @@ class BukuController extends Controller
         else
         {
             $request->validate([
-                'id' => 'required',
-                'judul' => 'required',
-                'penulis' => 'required' ,
-                'penerbit' => 'required' ,
-                'tahun_terbit' => 'required',
-                'kategori' => 'required'
+                'tbuku_id' => 'required',
+                'tbuku_judul' => 'required',
+                'tbuku_penulis' => 'required' ,
+                'tbuku_penerbit' => 'required' ,
+                'tbuku_tahun_terbit' => 'required',
+                'tbuku_kategori' => 'required'
             ]);
         }
 
         $form_data = array(
-            'id' => $request->id,
-            'judul' => $request->judul, 
-            'penulis' => $request->penulis,
-            'penerbit' => $request->penerbit, 
-            'tahun_terbit' => $request->tahun_terbit,
-            'kategori' => $request->kategori,
-            'sinopsis' => $request->sinopsis,
-            'cover_buku' => $cover_name
+            'tbuku_id' => $request->tbuku_id,
+            'tbuku_judul' => $request->tbuku_judul, 
+            'tbuku_penulis' => $request->tbuku_penulis,
+            'tbuku_penerbit' => $request->tbuku_penerbit, 
+            'tbuku_tahun_terbit' => $request->tbuku_tahun_terbit,
+            'tbuku_kategori' => $request->tbuku_kategori,
+            'tbuku_sinopsis' => $request->tbuku_sinopsis,
+            'tbuku_cover_buku' => $cover_name
         );
   
         Buku::whereId($id)->update($form_data);

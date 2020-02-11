@@ -11,7 +11,7 @@
 		<!-- END MENU SIDEBAR-->
 
 		<!-- PAGE CONTAINER-->
-        <div class="page-container">
+        <div class="page-container"> 
         	<!-- HEADER DESKTOP-->
         	@include('includes.backend.header')	
         	<!-- END HEADER DESKTOP-->
@@ -20,6 +20,7 @@
         	@yield('content')
         	<!-- END MAIN CONTENT-->
         </div>
+        <!--END PAGE CONTAINER-->
 	</div>
 	
 	<!-- Jquery JS-->

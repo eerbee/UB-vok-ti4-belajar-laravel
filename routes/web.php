@@ -16,13 +16,13 @@ Route::get('/dashboard', function () {
     return view('pages/backend/dashboard');
 });
 
+//ROUTE TAMPILAN PEMINJAMAN BUKU
 Route::get('/peminjaman', function () {
     return view('pages/backend/peminjaman');
 });
 
 //ROUTE TAMPILAN DATA BUKU
-Route::get('/buku', 'BukuController@index');
-
+Route::get('/buku', 'BukuController@indexBuku');
 
 //AKSES ROUTE
 Route::resource('buku','BukuController');

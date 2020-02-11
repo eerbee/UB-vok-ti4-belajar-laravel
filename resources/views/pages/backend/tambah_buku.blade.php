@@ -20,37 +20,35 @@
 	        		@csrf
 				    <div class="form-group">
 				        <label for="inputIdBuku">ID Buku</label>
-				        <input type="text" class="form-control" name="id" placeholder="Masukkan ID Buku" maxlength="12">
+				        <input type="text" class="form-control" name="tbuku_id" placeholder="Masukkan ID Buku" maxlength="12">
 				    </div>
 				    <div class="form-group">
 				        <label for="inputJudulBuku">Judul Buku</label>
-				        <input type="text" class="form-control" name="judul" placeholder="Masukkan Judul Buku">
+				        <input type="text" class="form-control" name="tbuku_judul" placeholder="Masukkan Judul Buku">
 				    </div>
 				    <div class="form-group">
 				        <label for="inputPenulisBuku">Penulis Buku</label>
-				        <input type="text" class="form-control" name="penulis" placeholder="Masukkan Penulis Buku">
+				        <input type="text" class="form-control" name="tbuku_penulis" placeholder="Masukkan Penulis Buku">
 				    </div>
 				    <div class="form-group">
 				        <label for="inputPenerbitBuku">Penerbit Buku</label>
-				        <input type="text" class="form-control" name="penerbit" placeholder="Masukkan Penerbit Buku">
+				        <input type="text" class="form-control" name="tbuku_penerbit" placeholder="Masukkan Penerbit Buku">
 				    </div>
 				    <div class="form-group">
 				        <label for="inputTahunTerbit">Tahun Terbit Buku</label>
-				        <input type="text" class="form-control" name="tahun_terbit" placeholder="Masukkan Tahun Terbit Buku" maxlength="4">
+				        <input type="text" class="form-control" name="tbuku_tahun_terbit" placeholder="Masukkan Tahun Terbit Buku" maxlength="4">
 				    </div>
 				    <div class="form-group">
 				        <label for="inputKategori">Kategori Buku</label>
-				        <input type="text" class="form-control" name="kategori" placeholder="Masukkan Kategori Buku">
+				        <input type="text" class="form-control" name="tbuku_kategori" placeholder="Masukkan Kategori Buku">
 				    </div>
 				    <div class="form-group">
 				        <label for="inputSinopsis">Sinopsis Buku</label>
-				        <!-- <input type="text" class="form-control" name="kategori" placeholder="Masukkan Kategori Buku"> -->
-				        <!-- <textarea name="sinopsis"  placeholder="Masukkan Sinopsis Buku" maxlength="1050"></textarea> -->
-				        <textarea name="sinopsis" type="text" class="form-control" cols="60" rows="10" maxlength="10050" placeholder="Masukkan Sinopsis Buku" ></textarea>
+				        <textarea name="tbuku_sinopsis" type="text" class="form-control" cols="60" rows="10" maxlength="10050" placeholder="Masukkan Sinopsis Buku" ></textarea>
 				    </div>
 				    <div class="form-group">
 				        <label for="inputCoverBuku">Cover Buku</label>
-				        <input type="file" class="form-control" name="cover_buku" class="btn btn-primary" value="Add">
+				        <input type="file" class="form-control" name="tbuku_cover_buku" class="btn btn-primary" value="Add">
 				    </div>
 				    <center>
 						<button type="submit" class="btn btn-primary m-t-25">SUBMIT</button>

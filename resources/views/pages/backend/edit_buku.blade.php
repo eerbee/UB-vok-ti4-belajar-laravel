@@ -17,42 +17,42 @@
                     </ul>
                 </div>
             @endif
-            <form class="m-t-25" action="{{ route('buku.update', $buku->id) }}" method="post" enctype="multipart/form-data">
+            <form class="m-t-25" action="{{ route('buku.update', $buku->tbuku_id) }}" method="post" enctype="multipart/form-data">
                 @csrf 
                 @method('PATCH')
                 <div class="form-group">
                     <label for="inputIdBuku">ID Buku</label>
-                    <input type="text" class="form-control" name="id" maxlength="12" value="{{ $buku->id }}">
+                    <input type="text" class="form-control" name="tbuku_id" maxlength="12" value="{{ $buku->tbuku_id }}">
                 </div>
                 <div class="form-group">
                     <label for="inputJudulBuku">Judul Buku</label>
-                    <input type="text" class="form-control" name="judul" value="{{ $buku->judul }}">
+                    <input type="text" class="form-control" name="tbuku_judul" value="{{ $buku->tbuku_judul }}">
                 </div>
                 <div class="form-group">
                     <label for="inputPenulisBuku">Penulis Buku</label>
-                    <input type="text" class="form-control" name="penulis" value="{{ $buku->penulis }}">
+                    <input type="text" class="form-control" name="tbuku_penulis" value="{{ $buku->tbuku_penulis }}">
                 </div>
                 <div class="form-group">
                     <label for="inputPenerbitBuku">Penerbit Buku</label>
-                    <input type="text" class="form-control" name="penerbit" value="{{ $buku->penerbit }}">
+                    <input type="text" class="form-control" name="tbuku_penerbit" value="{{ $buku->tbuku_penerbit }}">
                 </div>
                 <div class="form-group">
                     <label for="inputTahunTerbit">Tahun Terbit Buku</label>
-                    <input type="text" maxlength="4" class="form-control" name="tahun_terbit" value="{{ $buku->tahun_terbit }}">
+                    <input type="text" maxlength="4" class="form-control" name="tbuku_tahun_terbit" value="{{ $buku->tbuku_tahun_terbit }}">
                 </div>
                 <div class="form-group">
                     <label for="inputKategori">Kategori Buku</label>
-                    <input type="text" class="form-control" name="kategori" value="{{ $buku->kategori }}">
+                    <input type="text" class="form-control" name="tbuku_kategori" value="{{ $buku->tbuku_kategori }}">
                 </div>
                 <div class="form-group">
                     <label for="inputSinopsis">Sinopsis Buku</label>
-                    <textarea name="sinopsis" type="text" class="form-control" cols="60" rows="10" maxlength="10050">{{ $buku->sinopsis }}</textarea>
+                    <textarea name="tbuku_sinopsis" type="text" class="form-control" cols="60" rows="10" maxlength="10050">{{ $buku->tbuku_sinopsis }}</textarea>
                     </div>
                 <div class="form-group">
                     <label for="inputCoverBuku">Pilih Cover Buku</label>
-                    <input type="file" class="form-control" name="cover_buku">
-                    <img src="{{ URL::to('/')}}/images/{{ $buku->cover_buku }}" class="img-thumbnail" width="250"/>
-                    <input type="hidden" name="hidden_image" value="{{ $buku->cover_buku }}">
+                    <input type="file" class="form-control" name="tbuku_cover_buku">
+                    <img src="{{ URL::to('/')}}/images/{{ $buku->tbuku_cover_buku }}" class="img-thumbnail" width="250"/>
+                    <input type="hidden" name="hidden_image" value="{{ $buku->tbuku_cover_buku }}">
                 </div>
                 <center>
                     <button type="submit" class="btn btn-primary m-t-25">UPDATE</button>
