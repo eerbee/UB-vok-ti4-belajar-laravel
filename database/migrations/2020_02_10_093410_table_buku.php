@@ -20,11 +20,14 @@ class TableBuku extends Migration
             $table->string('tbuku_penulis');
             $table->string('tbuku_penerbit');
             $table->year('tbuku_tahun_terbit');
-            // $table->integer('kategori_id')->unsigned()->nullable();
-            $table->string('tbuku_kategori');
+            $table->bigInteger('tbuku_kategori')->unsigned()->nullable();
             $table->string('tbuku_sinopsis', 10000);
             $table->string('tbuku_cover_buku');
             $table->timestamps();
+        });   
+
+        Schema::table('table_buku', function($table) {
+            $table->foreign('tbuku_kategori')->references('tkategori_id')->on('table_kategori')->onDelete('cascade');
         });
     }
 
@@ -35,6 +38,6 @@ class TableBuku extends Migration
      */
     public function down()
     {
-        //
+    
     }
 }

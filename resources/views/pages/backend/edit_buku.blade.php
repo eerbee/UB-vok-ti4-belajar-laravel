@@ -42,7 +42,11 @@
                 </div>
                 <div class="form-group">
                     <label for="inputKategori">Kategori Buku</label>
-                    <input type="text" class="form-control" name="tbuku_kategori" value="{{ $buku->tbuku_kategori }}">
+                    <select class="form-control" name="tbuku_kategori">
+                        @foreach( $kategoris as $kategori)
+                            <option value="{{ $kategori->tkategori_id }}" {{ $kategori->tkategori_id == $buku->tbuku_kategori ? 'selected="selected"' : '' }}> {{ $kategori->tkategori_nama_kategori }} </option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="inputSinopsis">Sinopsis Buku</label>

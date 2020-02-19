@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="calendar.html">
+                    <a href="{{url('/calendar')}}">
                         <i class="fas fa-calendar-alt"></i>Calendar
                     </a>
                 </li>

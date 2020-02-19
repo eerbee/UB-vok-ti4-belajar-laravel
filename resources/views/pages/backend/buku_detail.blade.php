@@ -8,36 +8,47 @@
 	                <h2 class="title-1">DETAIL BUKU</h2>
 	            </div>
 	            <div class="row">
+	            	
 	            	<div class="col-8 m-t-35">
 	            		<div class="card mb-3" style="max-width: 540px;">
 	            			<div class="row no-gutters">
     							<div class="col-md-4">
-      								<img src="{{ URL::to('/') }}/images/{{ $data->tbuku_cover_buku }}" class="card-img"/><br>
+      								<img src="{{ URL::to('/') }}/images/{{ $buku->tbuku_cover_buku }}" class="card-img"/><br>
       								<center>
-      									<h5 style="margin-top: 10px;">{{$data->tbuku_id}}</h5>
+      									<h5 style="margin-top: 10px;">{{$buku->tbuku_id}}</h5>
       								</center>
     							</div>
 							    <div class="col-md-8">
 							      	<div class="card-body">
-							        	<h4 class="card-title">{{$data->tbuku_judul}}</h5>
+							        	<h4 class="card-title">{{$buku->tbuku_judul}}</h5>
 							        	<p class="card-text" style="margin-top: -10px; margin-bottom:10px;">
-							        		<small class="text-muted">{{$data->tbuku_kategori}} - {{$data->tbuku_tahun_terbit}}</small>
+							        		<small class="text-muted">
+							        			{{$buku->tbuku_tahun_terbit}}
+							        		</small>
 							        	</p>
-							        	<p class="card-text" style="font-size: 11pt;">{{$data->tbuku_sinopsis}}</p>
+							        	<p class="card-text" style="font-size: 11pt;">{{$buku->tbuku_sinopsis}}</p>
 							      	</div>
 							    </div>
   							</div>
 						</div>
 	            	</div>
   					<div class="col-4 m-t-55" style="margin-left: -1cm;">
+  						
   						<ul>
-  							<li>ID Buku : {{$data->tbuku_id}}</li>
-  							<li>Penulis : {{$data->tbuku_penulis}}</li>
-  							<li>Penerbit : {{$data->tbuku_penerbit}}</li>
-  							<li>Tahun Terbit : {{$data->tbuku_tahun_terbit}}</li>
-  							<li>Kategori : {{$data->tbuku_kategori}}</li>
+  							<li>ID Buku : {{$buku->tbuku_id}}</li>
+  							<li>Penulis : {{$buku->tbuku_penulis}}</li>
+  							<li>Penerbit : {{$buku->tbuku_penerbit}}</li>
+  							<li>
+  								Kategori : 
+  								@foreach($kategoris as $kategori)
+  									{{$kategori->table_kategori->tkategori_nama_kategori}}
+  								@endforeach
+  							</li>
+  							<li>Tahun Terbit : {{$buku->tbuku_tahun_terbit}}</li> 
   						</ul>
+  						
   					</div>
+  					
 	            </div>
 	            <div class="row">
 	                <div class="col-md-12 m-t-25">

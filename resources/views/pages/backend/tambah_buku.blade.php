@@ -38,9 +38,16 @@
 				        <label for="inputTahunTerbit">Tahun Terbit Buku</label>
 				        <input type="text" class="form-control" name="tbuku_tahun_terbit" placeholder="Masukkan Tahun Terbit Buku" maxlength="4">
 				    </div>
+
 				    <div class="form-group">
 				        <label for="inputKategori">Kategori Buku</label>
-				        <input type="text" class="form-control" name="tbuku_kategori" placeholder="Masukkan Kategori Buku">
+				        <select class="form-control" name="tbuku_kategori">
+	                    	@foreach( $kategoris as $kategori)
+	                      		<option value="{{ $kategori->tkategori_id }}">
+	                      			{{ $kategori->tkategori_nama_kategori }}
+	                      		</option>
+	                    	@endforeach
+                  		</select>
 				    </div>
 				    <div class="form-group">
 				        <label for="inputSinopsis">Sinopsis Buku</label>

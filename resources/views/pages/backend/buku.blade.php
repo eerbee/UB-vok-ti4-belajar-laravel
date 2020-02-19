@@ -35,10 +35,10 @@
                                 <thead>
                                     <tr>
                                         <th scope="col"><center>ID</center></th>
-                                        <th scope="col" width="9%"><center>ID Buku</center></th>
+                                        <th scope="col" width="11%"><center>ID Buku</center></th>
                                         <th scope="col" width="25%"><center>Judul</center></th>
                                         <th scope="col" width="15%">Penulis</th>
-                                        <th scope="col" width="15%">Penerbit</th>
+                                        <th scope="col" width="13%">Kategori</th>
                                         <th scope="col" width="3%"><center>Tahun</center></th>
                                         <th scope="col" ><center>Aksi</center></th>
                                     </tr>
@@ -52,7 +52,7 @@
                                         <td>                {{ $b->tbuku_id }}</td>
                                         <td>                {{ $b->tbuku_judul }}</td>
                                         <td>                {{ $b->tbuku_penulis }}</td>
-                                        <td>                {{ $b->tbuku_penerbit }}</td>
+                                        <td>                {{ $b->tkategori_nama_kategori }}</td>
                                         <td align="center"> {{ $b->tbuku_tahun_terbit }}</td>
                                         <td align="center">
                                             <a href="{{ route('buku.show', $b->tbuku_id) }}" class="btn btn-secondary btn-sm"> Detail </a>

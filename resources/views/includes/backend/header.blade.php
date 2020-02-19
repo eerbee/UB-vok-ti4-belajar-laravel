@@ -1,4 +1,4 @@
-<!-- HEADER DESKTOP-->
+    <!-- HEADER DESKTOP-->
 <header class="header-desktop">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
@@ -85,6 +85,20 @@
                                         <i class="zmdi zmdi-power"></i>Logout
                                     </a>
                                 </div>
+                                
+                                
+
+                                
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                            
                             </div>
                         </div>
                     </div>

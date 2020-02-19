@@ -8,12 +8,12 @@ class Kategori extends Model
 {
     protected $table ='table_kategori';
 
-    public $timestamps = false;
+    protected $primaryKey = 'tkategori_id';
 
-    protected $fillable = ['id', 'nama_kategori'];
+    protected $fillable = ['tkategori_id', 'tkategori_nama_kategori'];
 
- //    public function table_buku()
- //    { 
- //      return $this->hasMany('App\Buku'); 
-	// }
+    public function table_buku()
+    { 
+      return $this->hasMany('App\Buku','tbuku_kategori','tkategori_id'); 
+	}
 }

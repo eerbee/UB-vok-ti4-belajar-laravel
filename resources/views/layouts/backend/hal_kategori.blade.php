@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin - Data Buku</title>
+	<title>Admin - Kategori Buku</title>
 	@include('includes.backend.meta_head')
 </head>
 <body class="animsition">

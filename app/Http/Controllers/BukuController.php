@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Buku;
+use App\Kategori;
 
 class BukuController extends Controller
 {
@@ -18,12 +19,14 @@ class BukuController extends Controller
 
         $bukus = Buku::when($request->q, function ($query) use ($request) 
         {
-              $query->where('tbuku_id', 'LIKE', "%{$request->q}%")
-                    ->orWhere('tbuku_judul', 'LIKE', "%{$request->q}%")
-                    ->orWhere('tbuku_penulis', 'LIKE', "%{$request->q}%")
-                    ->orWhere('tbuku_penerbit', 'LIKE', "%{$request->q}%")
-                    ->orWhere('tbuku_tahun_terbit', 'LIKE', "%{$request->q}%");
-        })->orderBy('tbuku_id', 'desc')->paginate(5);
+          $query->where('tbuku_id', 'LIKE', "%{$request->q}%")
+                ->orWhere('tbuku_judul', 'LIKE', "%{$request->q}%")
+                ->orWhere('tbuku_penulis', 'LIKE', "%{$request->q}%")
+                ->orWhere('tkategori_nama_kategori', 'LIKE', "%{$request->q}%")
+                ->orWhere('tbuku_tahun_terbit', 'LIKE', "%{$request->q}%");
+        })  
+        ->join('table_kategori', 'table_kategori.tkategori_id', '=', 'table_buku.tbuku_kategori')
+        ->orderBy('tbuku_id', 'desc')->paginate(5);
 
         $bukus->appends($request->only('q'));
 
@@ -40,7 +43,7 @@ class BukuController extends Controller
         // }
     }
 
-    public function indexBuku(Request $request)
+    public function indexBuku()
     {
         $bukus = Buku::all();
         return view('pages.backend.buku', compact('bukus'));
@@ -53,7 +56,9 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('pages.backend.tambah_buku');
+        $kategoris = Kategori::all();
+        // return view('pages.backend.tambah_buku', compact('kategoris'));
+        return view('pages.backend.tambah_buku')->with('kategoris', $kategoris);
     }
 
     /**
@@ -103,8 +108,17 @@ class BukuController extends Controller
      */
     public function show($id)
     {
-        $data = Buku::findOrFail($id);
-        return view('pages.backend.buku_detail', compact('data'));
+        $buku = Buku::findOrFail($id);
+        $kategori = Buku::with('table_kategori')
+            ->where('table_buku.tbuku_id', '=', $buku->tbuku_kategori)->get();
+
+        return view('pages.backend.buku_detail',compact('buku'))->with('kategoris', $kategori);
+
+        // print($buku->tbuku_kategori);
+        // print($kategori);
+
+        // $data = Buku::findOrFail($id);
+        // return view('pages.backend.buku_detail', compact('data'));
     }
 
     /**
@@ -115,8 +129,9 @@ class BukuController extends Controller
      */
     public function edit($id)
     {
+        $kategori = Kategori::all();
         $buku = Buku::findOrFail($id);
-        return view('pages.backend.edit_buku', compact('buku'));
+        return view('pages.backend.edit_buku', compact('buku'))->with('kategoris', $kategori);
     }
 
     /**
@@ -152,7 +167,7 @@ class BukuController extends Controller
                 'tbuku_penulis' => 'required' ,
                 'tbuku_penerbit' => 'required' ,
                 'tbuku_tahun_terbit' => 'required',
-                'tbuku_kategori' => 'required'
+                'tbuku_kategori' => 'requir ed'
             ]);
         }
 
@@ -167,7 +182,7 @@ class BukuController extends Controller
             'tbuku_cover_buku' => $cover_name
         );
   
-        Buku::whereId($id)->update($form_data);
+        Buku::where('tbuku_id',$id)->update($form_data);
 
         return redirect('/buku')->with('success', 'Data is successfully updated');
     }
