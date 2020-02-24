@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Buku;
+use App\Kategori;
 use Faker\Factory as Faker;
 
-class buku_seeder extends Seeder
+class kategori_buku_seeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class buku_seeder extends Seeder
      */
     public function run()
     {
-        Factory(App\Buku::class,7)->create();
+        Factory(App\Kategori::class,10)->create();
     }
 }

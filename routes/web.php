@@ -16,14 +16,8 @@ Route::get('/dashboard', function () {
     return view('pages/backend/dashboard');
 });
 
-// ROUTE TAMPILAN DATA BUKU
-// Route::get('/buku', 'BukuController@index');
-
 //AKSES ROUTE DATA BUKU
 Route::resource('buku','BukuController')->middleware('auth');
-
-// ROUTE TAMPILAN KATEORI BUKU
-// Route::get('/kategori', 'KategoriController@indexKategori');
 
 //AKSES ROUTE DATA KATEGORI
 Route::resource('kategori','KategoriController')->middleware('auth');

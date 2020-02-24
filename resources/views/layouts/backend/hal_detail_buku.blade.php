@@ -15,12 +15,12 @@
 		    </div>
 		    <div class="menu-sidebar__content js-scrollbar1">
 		        <nav class="navbar-sidebar">
-		            <ul class="list-unstyled navbar__list">
-		                <li class="has-sub">
-		                    <a class="js-arrow" href="{{ url('/buku') }}">
-		                        <i class="fas fa-arrow-left"></i>Kembali
-		                    </a>
-		                </li>
+		            <ul class="list-unstyled navbar__list"> 
+			            <li class="has-sub">
+			               	<a href="{{ route('buku.index') }}">
+			                    <i class="fas fa-arrow-left"></i>Kembali
+			                </a> 
+			            </li>
 		            </ul>
 		        </nav>
 		    </div>

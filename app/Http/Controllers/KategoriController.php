@@ -25,12 +25,6 @@ class KategoriController extends Controller
         return view('pages.backend.kategori', compact('kategoris'));
     }
 
-    public function indexKategori()
-    {
-        $kategoris = Kategori::all();
-        return view('pages.backend.kategori', compact('kategoris'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *

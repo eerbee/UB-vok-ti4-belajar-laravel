@@ -17,10 +17,10 @@
 		        <nav class="navbar-sidebar">
 		            <ul class="list-unstyled navbar__list">
 		                <li class="has-sub">
-		                    <a class="js-arrow" href="{{ url('/kategori') }}">
-		                        <i class="fas fa-arrow-left"></i>Kembali
-		                    </a>
-		                </li>
+			               	<a href="{{ route('kategori.index') }}">
+			                    <i class="fas fa-arrow-left"></i>Kembali
+			                </a> 
+			            </li>
 		            </ul>
 		        </nav>
 		    </div>

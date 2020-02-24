@@ -14,7 +14,7 @@ $factory->define(Buku::class, function (Faker $faker)
         'tbuku_penulis' => $faker->word,
         'tbuku_penerbit' => $faker->word,
         'tbuku_tahun_terbit' => $faker->year,
-        'tbuku_kategori' => $faker->word,
+        'tbuku_kategori' => $faker->numberBetween(4,14),
         'tbuku_sinopsis' => $faker->word,
         'tbuku_cover_buku' => $faker->picsum('public/images',180,260, false)
     ];

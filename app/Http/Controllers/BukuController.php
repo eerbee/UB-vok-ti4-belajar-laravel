@@ -43,12 +43,6 @@ class BukuController extends Controller
         // }
     }
 
-    public function indexBuku()
-    {
-        $bukus = Buku::all();
-        return view('pages.backend.buku', compact('bukus'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -109,16 +103,8 @@ class BukuController extends Controller
     public function show($id)
     {
         $buku = Buku::findOrFail($id);
-        $kategori = Buku::with('table_kategori')
-            ->where('table_buku.tbuku_id', '=', $buku->tbuku_kategori)->get();
 
-        return view('pages.backend.buku_detail',compact('buku'))->with('kategoris', $kategori);
-
-        // print($buku->tbuku_kategori);
-        // print($kategori);
-
-        // $data = Buku::findOrFail($id);
-        // return view('pages.backend.buku_detail', compact('data'));
+        return view('pages.backend.buku_detail',compact('buku'));
     }
 
     /**

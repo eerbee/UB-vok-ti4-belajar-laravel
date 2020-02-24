@@ -23,7 +23,7 @@
 							        	<h4 class="card-title">{{$buku->tbuku_judul}}</h5>
 							        	<p class="card-text" style="margin-top: -10px; margin-bottom:10px;">
 							        		<small class="text-muted">
-							        			{{$buku->tbuku_tahun_terbit}}
+							        			{{ $buku->table_kategori->tkategori_nama_kategori }} - {{$buku->tbuku_tahun_terbit}}
 							        		</small>
 							        	</p>
 							        	<p class="card-text" style="font-size: 11pt;">{{$buku->tbuku_sinopsis}}</p>
@@ -39,10 +39,7 @@
   							<li>Penulis : {{$buku->tbuku_penulis}}</li>
   							<li>Penerbit : {{$buku->tbuku_penerbit}}</li>
   							<li>
-  								Kategori : 
-  								@foreach($kategoris as $kategori)
-  									{{$kategori->table_kategori->tkategori_nama_kategori}}
-  								@endforeach
+  								Kategori  : {{ $buku->table_kategori->tkategori_nama_kategori }}
   							</li>
   							<li>Tahun Terbit : {{$buku->tbuku_tahun_terbit}}</li> 
   						</ul>
