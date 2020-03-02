@@ -30,7 +30,7 @@ class BukuController extends Controller
 
         $bukus->appends($request->only('q'));
 
-        return view('pages.backend.buku', compact('bukus'));
+        return view('pages.admin.buku.buku', compact('bukus'));
 
         // if(!$bukus->isEmpty()) 
         // {
@@ -52,7 +52,7 @@ class BukuController extends Controller
     {
         $kategoris = Kategori::all();
         // return view('pages.backend.tambah_buku', compact('kategoris'));
-        return view('pages.backend.tambah_buku')->with('kategoris', $kategoris);
+        return view('pages.admin.buku.tambah_buku')->with('kategoris', $kategoris);
     }
 
     /**
@@ -103,8 +103,10 @@ class BukuController extends Controller
     public function show($id)
     {
         $buku = Buku::findOrFail($id);
+        $kategori = Buku::with('table_kategori')
+            ->where('table_buku.tbuku_id', '=', $buku->tbuku_kategori)->get();
 
-        return view('pages.backend.buku_detail',compact('buku'));
+        return view('pages.admin.buku.buku_detail',compact('buku'));
     }
 
     /**
@@ -117,7 +119,7 @@ class BukuController extends Controller
     {
         $kategori = Kategori::all();
         $buku = Buku::findOrFail($id);
-        return view('pages.backend.edit_buku', compact('buku'))->with('kategoris', $kategori);
+        return view('pages.admin.buku.edit_buku', compact('buku'))->with('kategoris', $kategori);
     }
 
     /**

@@ -11,9 +11,9 @@
 |
 */
 
-//ROUTE TAMPILAN DASHBOARD
+//ROUTE TAMPILAN ADMIN-DASHBOARD
 Route::get('/dashboard', function () {
-    return view('pages/backend/dashboard');
+    return view('pages/admin/dashboard');
 });
 
 //AKSES ROUTE DATA BUKU
@@ -22,8 +22,19 @@ Route::resource('buku','BukuController')->middleware('auth');
 //AKSES ROUTE DATA KATEGORI
 Route::resource('kategori','KategoriController')->middleware('auth');
 
-Auth::routes();
+//ROUTE TAMPILAN HOMEPAGE
+Route::get('/', function () {
+    return view('pages/public/homepage');
+});
 
-Route::get('/','BukuController@index')->middleware('auth');
+//ROUTE TAMPILAN ABOUS US
+Route::get('/about_us', function () {
+    return view('pages/public/about_us');
+});
+
+//ROUTE TAMPILAN KOLEKSI BUKU
+Route::resource('/koleksi_buku','KoleksiBukuController');
+
+Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');

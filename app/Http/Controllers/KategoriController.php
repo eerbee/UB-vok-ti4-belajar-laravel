@@ -22,7 +22,7 @@ class KategoriController extends Controller
 
         $kategoris->appends($request->only('src'));
 
-        return view('pages.backend.kategori', compact('kategoris'));
+        return view('pages.admin.kategori_buku.kategori', compact('kategoris'));
     }
 
     /**
@@ -33,7 +33,7 @@ class KategoriController extends Controller
     public function create()
     {
         
-        return view('pages.backend.tambah_kategoribuku');
+        return view('pages.admin.kategori_buku.tambah_kategoribuku');
     }
 
     /**
@@ -76,7 +76,7 @@ class KategoriController extends Controller
     public function edit($id)
     {
         $kategoris = Kategori::findOrFail($id);
-        return view('pages.backend.edit_kategoribuku', compact('kategoris'));
+        return view('pages.admin.kategori_buku.edit_kategoribuku', compact('kategoris'));
     }
 
     /**
