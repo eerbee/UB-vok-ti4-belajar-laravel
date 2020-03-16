@@ -1,3 +1,10 @@
+@extends('layouts.admin.hal_calendar')
+
+@section('content')
+<script>
+    var codeBlock = '<h2 class="title-1">KALENDAR</h2>';
+    document.getElementById("title_page").innerHTML = codeBlock
+</script>
 <!-- MAIN CONTENT-->
 <div class="main-content">
     <div class="section__content section__content--p30">
@@ -19,3 +26,5 @@
         </div>
     </div>
 </div>
+
+@stop

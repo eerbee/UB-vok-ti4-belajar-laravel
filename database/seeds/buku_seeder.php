@@ -13,6 +13,6 @@ class buku_seeder extends Seeder
      */
     public function run()
     {
-        Factory(App\Buku::class,7)->create();
+        Factory(App\Buku::class,20)->create();
     }
 }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Buku;
 use App\Kategori;
+use App\Exports\BukuExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 
 class BukuController extends Controller
 {
@@ -186,5 +189,10 @@ class BukuController extends Controller
         $buku = Buku::findOrFail($id);
         $buku->delete();
         return redirect('/buku')->with('succes', 'Data is succesfully deleted.');
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new BukuExport, 'buku.xlsx');
     }
 }

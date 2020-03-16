@@ -24,12 +24,18 @@
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                             </form>
+                            <form action="/export_excel">
+                                <button class="au-btn au-btn-icon au-btn--green">
+                                    <i class="zmdi zmdi-download"></i>EXPORT EXCEL
+                                </button>
+                            </form>
                             <form action="{{route('buku.create')}}">
                                 <button class="au-btn au-btn-icon au-btn--blue">
                                     <i class="zmdi zmdi-plus"></i>ADD BUKU 
                                 </button>
                             </form>
                         </div>
+                        
                         <div class="card m-t-25">
                             <table class="table table-hover">
                                 <thead>

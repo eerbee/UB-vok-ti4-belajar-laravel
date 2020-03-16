@@ -11,17 +11,26 @@
 |
 */
 
-//ROUTE TAMPILAN ADMIN-DASHBOARD
-Route::get('/dashboard', function () {
-    return view('pages/admin/dashboard');
-});
+//[------ADMIN------]//
+//ROUTE TAMPILAN DASHBOARD
+Route::resource('dashboard','DashboardController')->middleware('auth');
 
 //AKSES ROUTE DATA BUKU
 Route::resource('buku','BukuController')->middleware('auth');
 
+//AKSES ROUTE EKSPORT EXCEL
+Route::get('export_excel', 'BukuController@export_excel')->middleware('auth');
+
 //AKSES ROUTE DATA KATEGORI
 Route::resource('kategori','KategoriController')->middleware('auth');
 
+//AKSES TAMPILAN KALENDAR
+Route::get('/kalendar', function () {
+    return view('pages/admin/calendar');
+})->middleware('auth');
+
+
+//[------PUBLIC------]//
 //ROUTE TAMPILAN HOMEPAGE
 Route::get('/', function () {
     return view('pages/public/homepage');

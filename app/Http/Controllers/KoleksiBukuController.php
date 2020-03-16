@@ -16,18 +16,18 @@ class KoleksiBukuController extends Controller
     public function index(Request $request)
     {
         $bukus = Buku::all();
-        // $bukus = Buku::when($request->q, function ($query) use ($request) 
-        // {
-        //   $query->where('tbuku_id', 'LIKE', "%{$request->q}%")
-        //         ->orWhere('tbuku_judul', 'LIKE', "%{$request->q}%")
-        //         ->orWhere('tbuku_penulis', 'LIKE', "%{$request->q}%")
-        //         ->orWhere('tkategori_nama_kategori', 'LIKE', "%{$request->q}%")
-        //         ->orWhere('tbuku_tahun_terbit', 'LIKE', "%{$request->q}%");
-        // })  
-        // ->join('table_kategori', 'table_kategori.tkategori_id', '=', 'table_buku.tbuku_kategori')
-        // ->orderBy('tbuku_id', 'desc');
+        $bukus = Buku::when($request->q, function ($query) use ($request) 
+        {
+          $query->where('tbuku_id', 'LIKE', "%{$request->q}%")
+                ->orWhere('tbuku_judul', 'LIKE', "%{$request->q}%")
+                ->orWhere('tbuku_penulis', 'LIKE', "%{$request->q}%")
+                ->orWhere('tkategori_nama_kategori', 'LIKE', "%{$request->q}%")
+                ->orWhere('tbuku_tahun_terbit', 'LIKE', "%{$request->q}%");
+        })  
+        ->join('table_kategori', 'table_kategori.tkategori_id', '=', 'table_buku.tbuku_kategori')
+        ->orderBy('tbuku_id', 'desc')->paginate(10);
 
-        // $bukus->appends($request->only('q'));
+        $bukus->appends($request->only('q'));
 
         return view('pages.public.koleksi_buku',compact('bukus'));
     }

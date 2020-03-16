@@ -9,9 +9,10 @@
 		<!-- MENU SIDEBAR-->
 		<aside class="menu-sidebar d-none d-lg-block">
 		    <div class="logo">
-		        <a href="#">
-		            <img src="{{asset('assets/images/icon/logo.png')}}" alt="Cool Admin" />
-		        </a>
+		        <a href="/dashboard">
+		            <h3>TREEBO LIBRARY</h3>
+		            <h4>Administrator Panel</h4>
+        		</a>
 		    </div>
 		    <div class="menu-sidebar__content js-scrollbar1">
 		        <nav class="navbar-sidebar">

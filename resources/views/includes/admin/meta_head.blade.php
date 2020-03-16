@@ -22,3 +22,14 @@
 
 <!-- Main CSS-->
 <link href="{{asset('assets/css/theme.css')}}" rel="stylesheet" media="all">
+
+<!-- FullCalendar -->
+<link href="{{asset('assets/vendor/fullcalendar-3.10.0/fullcalendar.css')}}" rel='stylesheet' media="all" />
+
+
+
+
+    
+
+
+    

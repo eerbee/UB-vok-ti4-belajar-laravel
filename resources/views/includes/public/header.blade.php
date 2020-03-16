@@ -2,10 +2,15 @@
 <header id="mu-hero">
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light mu-navbar">
-			<!-- Text based logo -->
-			<a class="navbar-brand mu-logo" href="index.html"><span>B-HERO</span></a>
 			<!-- image based logo -->
-		   	<!-- <a class="navbar-brand mu-logo" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
+		   	<a class="navbar-brand mu-logo" href="{{ url('/') }}">
+		   		<img src="{{asset('assets_public/images/logo.png')}}" width="65px" height="65px">
+		   	</a>
+			<!-- Text based logo -->
+			<a class="navbar-brand mu-logo" href="{{ url('/') }}" style="margin-top: -15px;">
+				<span>treebo library</span>
+			</a>
+			
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="fa fa-bars"></span>
 		  </button>
